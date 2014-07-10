@@ -8,16 +8,15 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
 
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/main.html'
       })
         .when('/chicago', {
             templateUrl: 'views/chicago.html',
-            controller: 'ChicagoCtrl',
+            controller: 'ChicagoWeatherCtrl',
             resolve: {
-                chicagoWeatherData: ['$route', '$q', 'weatherData', function($route, $q, weatherData) {
+                chicagoWeatherData: ['$route', '$q', 'weatherDataService', function($route, $q, weatherDataService) {
                     var deferred = $q.defer();
-                    weatherData.getChicagoWeather().then(function(response) {
+                    weatherDataService.getChicagoWeather().then(function(response) {
                        deferred.resolve(response);
                     }, function(error) {
                         alert(error.message);

@@ -3,7 +3,7 @@
  */
 
 angular.module('weatherApp')
-    .controller('ChicagoCtrl', ['$scope', 'chicagoWeatherData', function($scope, chicagoWeatherData) {
+    .controller('ChicagoWeatherCtrl', ['$scope', 'chicagoWeatherData', function($scope, chicagoWeatherData) {
 
         $scope.chicagoWeatherData = chicagoWeatherData;
     }]);
