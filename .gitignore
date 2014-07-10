@@ -3,4 +3,4 @@ dist
 .tmp
 .sass-cache
 app/bower_components
-forecastio_api_key.md
+api_keys.md

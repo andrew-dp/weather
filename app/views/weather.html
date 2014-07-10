@@ -11,5 +11,11 @@
         <h2>Current weather in {{weatherData.timezone}}: {{weatherData.currently.summary}}</h2>
         <p>Weather for the week: {{weatherData.daily.summary}} </p>
         <p> Current time in {{weatherData.timezone}}: {{currentTime}}</p>
+
+        <div ng-repeat="data in hourlyData">
+            <p>--------------</p>
+            <p> {{ data.summary }} </p>
+            <p> {{ data.temperature }} </p>
+        </div>
     </div>
 </div>

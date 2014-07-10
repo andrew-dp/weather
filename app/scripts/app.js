@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'angularMoment'])
+angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'angularMoment', 'google-maps'])
 
   .constant('FORECAST_BASE_URL', 'https://api.forecast.io/forecast/2c278faafe07dd1e617dc3efcc1ae103')
 
@@ -10,7 +10,8 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
 
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html'
+        templateUrl: '../views/main.html',
+        controller: 'MapCtrl'
       })
         .when('/weather', {
             templateUrl: '../views/weather.html',

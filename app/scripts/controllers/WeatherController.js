@@ -7,8 +7,7 @@ angular.module('weatherApp')
 
         $scope.weatherData = weatherData;
 
-        var localTime = moment.unix(weatherData.currently.time);
-//        localTime = localTime.toDate();
+        $scope.currentTime = moment.unix(weatherData.currently.time);
 
-        $scope.currentTime = localTime;
+        $scope.hourlyData = weatherData.hourly.data;
     }]);
