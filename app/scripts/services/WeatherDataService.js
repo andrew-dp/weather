@@ -20,8 +20,6 @@ angular.module('weatherApp').service('weatherDataService', function($q, $http, F
         return deferred.promise;
     }
 
-
-
 //  The public API
     return {
         getChicagoWeather: function() {
