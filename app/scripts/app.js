@@ -6,6 +6,8 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
 
   .config(['$routeProvider', function ($routeProvider) {
 
+//    delete $routeProvider.defaults.headers.common['X-Requested-With'];
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html'
@@ -22,6 +24,7 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
                         alert(error.message);
                         deferred.reject(error);
                     });
+                    console.log(deferred.promise);
                     return deferred.promise;
                 }]
             }
