@@ -3,4 +3,4 @@ dist
 .tmp
 .sass-cache
 app/bower_components
-wunderground_api_key.md
+forecastio_api_key.md

@@ -15,9 +15,9 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
             templateUrl: 'views/chicago.html',
             controller: 'ChicagoCtrl',
             resolve: {
-                chicagoWeatherData: ['$route', '$q', 'WeatherData', function($route, $q, WeatherData) {
+                chicagoWeatherData: ['$route', '$q', 'weatherData', function($route, $q, weatherData) {
                     var deferred = $q.defer();
-                    WeatherData.getChicagoWeather().then(function(response) {
+                    weatherData.getChicagoWeather().then(function(response) {
                        deferred.resolve(response);
                     }, function(error) {
                         alert(error.message);
