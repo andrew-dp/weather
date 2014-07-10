@@ -1,1 +1,1 @@
-Wunderground's API + Yeoman + AngularJS
+Forecast.io API + Yeoman + AngularJS

@@ -12,11 +12,11 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
       .when('/', {
         templateUrl: 'views/main.html'
       })
-        .when('/chicago', {
-            templateUrl: 'views/chicago.html',
-            controller: 'ChicagoWeatherCtrl',
+        .when('/weather', {
+            templateUrl: '../views/weather.html',
+            controller: 'WeatherCtrl',
             resolve: {
-                chicagoWeatherData: ['$route', '$q', 'weatherDataService', function($route, $q, weatherDataService) {
+                weatherData: ['$route', '$q', 'weatherDataService', function($route, $q, weatherDataService) {
                     var deferred = $q.defer();
                     weatherDataService.getChicagoWeather().then(function(response) {
                        deferred.resolve(response);
@@ -24,7 +24,6 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
                         alert(error.message);
                         deferred.reject(error);
                     });
-                    console.log(deferred.promise);
                     return deferred.promise;
                 }]
             }
