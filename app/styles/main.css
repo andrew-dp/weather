@@ -76,8 +76,9 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
 
-    .angular-google-map-container {
-        height: 400px;
-    }
+.angular-google-map-container {
+    height: 700px;
+    width: 700px;
 }
