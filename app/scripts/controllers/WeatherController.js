@@ -10,5 +10,5 @@ angular.module('weatherApp')
         var localTime = weatherData.currently.time;
         localTime = localTime.toString();
 
-        $scope.currentTime = ;
+        $scope.currentTime = localTime;
     }]);

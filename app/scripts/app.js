@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'])
+angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'angularMoment'])
 
   .constant('FORECAST_BASE_URL', 'https://api.forecast.io/forecast/2c278faafe07dd1e617dc3efcc1ae103')
 
