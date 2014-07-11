@@ -19,7 +19,9 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
             resolve: {
                 weatherData: ['$route', '$q', 'weatherDataService', function($route, $q, weatherDataService) {
                     var deferred = $q.defer();
-                    weatherDataService.getChicagoWeather().then(function(response) {
+//                  var latitude = 41.85;
+//                  var longitude = -87.65;
+                    weatherDataService.getWeather().then(function(response) {
                        deferred.resolve(response);
                     }, function(error) {
                         alert(error.message);

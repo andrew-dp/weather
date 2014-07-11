@@ -5,6 +5,7 @@
     </ul>
     <h3 class="text-muted">weather</h3>
 </div>
+        <!--<input type="text" ng-controller="">-->
 
 <div class="jumbotron">
     <div>
@@ -12,8 +13,13 @@
         <p>Weather for the week: {{weatherData.daily.summary}} </p>
         <p> Current time in {{weatherData.timezone}}: {{ currentTime | date:'short'}}</p>
 
+        <div ng-repeat="day in dailyDataDays track by $index">
+            <p> {{ day }} </p>
+        </div>
+
         <div ng-repeat="data in dailyData">
             <p>--------------</p>
+            <p> {{ data.time }} </p>
             <p> {{ data.summary }} </p>
             <p> {{ data.temperatureMax }} </p>
             <p> {{ data.temperatureMin }} </p>
