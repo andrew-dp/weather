@@ -5,8 +5,7 @@
 angular.module('weatherApp')
     .controller('WeatherCtrl', ['$scope', 'weatherData', 'moment', function($scope, weatherData, moment) {
 
-        var time = moment.unix(weatherData.currently.time);
-        time =  time.toDate();
+        var time = moment.unix(weatherData.currently.time).format("dddd, MMMM Do YYYY, h:mm:ss a");
 
         $scope.currentTime = time;
         $scope.weatherData = weatherData;
@@ -22,8 +21,19 @@ angular.module('weatherApp')
             listOfDays.push(day);
         }
 
-        $scope.dailyDataDays = listOfDays;
+        var formattedDailyData = [];
 
-        $scope.dailyData = weatherData.daily.data;
+        for (var i = 0; i < dailyWeatherData.length; i++ ) {
+            formattedDailyData[i] = {
+
+                day : listOfDays[i],
+                time : dailyWeatherData[i].time,
+                summary : dailyWeatherData[i].summary,
+                temperatureMax : dailyWeatherData[i].temperatureMax,
+                temperatureMin : dailyWeatherData[i].temperatureMin
+            }
+        }
+
+        $scope.dailyData = formattedDailyData;
 
     }]);
