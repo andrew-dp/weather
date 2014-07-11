@@ -10,7 +10,7 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
 
     $routeProvider
       .when('/', {
-        templateUrl: '../views/main.html',
+        templateUrl: '../views/map.html',
         controller: 'MapCtrl'
       })
         .when('/weather', {

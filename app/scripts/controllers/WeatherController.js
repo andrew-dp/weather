@@ -3,11 +3,18 @@
  */
 
 angular.module('weatherApp')
-    .controller('WeatherCtrl', ['$scope', 'weatherData', function($scope, weatherData) {
+    .controller('WeatherCtrl', ['$scope', 'weatherData', 'moment', function($scope, weatherData, moment) {
 
         $scope.weatherData = weatherData;
 
-        $scope.currentTime = moment.unix(weatherData.currently.time);
+        var time = moment.unix(weatherData.currently.time);
+        time =  time.toDate();
+
+        console.log('time: ' + time);
+
+        $scope.currentTime = time;
 
         $scope.hourlyData = weatherData.hourly.data;
+
+        $scope.dailyData = weatherData.daily.data;
     }]);

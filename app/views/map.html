@@ -6,12 +6,18 @@
   <h3 class="text-muted">weather</h3>
 </div>
 
-<google-map center="map.center" zoom="map.zoom"></google-map>
+<div class="row">
+    <google-map
+            center="map.center"
+            zoom="map.zoom"
+            draggable="true"
+            events="MouseEvent">
+    </google-map>
+</div>
 
 <div class="jumbotron">
     <div>
         <a href="#/weather"> City</a>
     </div>
-
 </div>
 
