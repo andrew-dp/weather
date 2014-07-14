@@ -2,6 +2,8 @@
  * Created by aguard on 07/09/14.
  */
 
+//TODO - build a directive to bind the scope of the user input (the lat / lon), use that directive in both views (also TODO - figure out if that is possible)
+
 angular.module('weatherApp')
     .controller('WeatherCtrl', ['$scope', 'weatherData', 'moment', function($scope, weatherData, moment) {
 
@@ -23,17 +25,16 @@ angular.module('weatherApp')
 
         var formattedDailyData = [];
 
-        for (var i = 0; i < dailyWeatherData.length; i++ ) {
-            formattedDailyData[i] = {
+        for (var j = 0; j < dailyWeatherData.length; j++ ) {
+            formattedDailyData[j] = {
 
-                day : listOfDays[i],
-                time : dailyWeatherData[i].time,
-                summary : dailyWeatherData[i].summary,
-                temperatureMax : dailyWeatherData[i].temperatureMax,
-                temperatureMin : dailyWeatherData[i].temperatureMin
+                day : listOfDays[j],
+                time : dailyWeatherData[j].time,
+                summary : dailyWeatherData[j].summary,
+                temperatureMax : dailyWeatherData[j].temperatureMax,
+                temperatureMin : dailyWeatherData[j].temperatureMin
             }
         }
 
         $scope.dailyData = formattedDailyData;
-
     }]);
