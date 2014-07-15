@@ -3,7 +3,7 @@
  */
 
 angular.module('weatherApp')
-    .controller('WeatherCtrl', ['$scope', 'weatherData', 'moment', 'logisticsService', function($scope, weatherData, moment, logisticsService) {
+    .controller('WeatherCtrl', ['$scope', 'weatherData', 'moment', function($scope, weatherData, moment) {
 
         var time = moment.unix(weatherData.currently.time).format('dddd, MMMM Do YYYY, h:mm:ss a');
 

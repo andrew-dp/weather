@@ -8,11 +8,22 @@
 
 <div class="row">
     <div class="span8">
-        <google-map
+        <google-map id="mainMap"
                 center="map.center"
                 zoom="map.zoom"
                 draggable="true"
-                events="MouseEvent">
+                events="map.events"
+                options="map.options"
+                control="map.control"
+                mark-click="true">
+
+            <!--<marker coords='{expression}'-->
+                    <!--icon='{expression}'-->
+                    <!--click='{expression}'-->
+                    <!--options='{expression}'-->
+                    <!--events='{expression}'>-->
+            <!--</marker>-->
+
         </google-map>
     </div>
 </div>
