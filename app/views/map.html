@@ -1,6 +1,6 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
+    <li class="active"><a ng-href="#/map.html">Home</a></li>
 
   </ul>
   <h3 class="text-muted">weather</h3>
@@ -17,8 +17,10 @@
     </div>
 </div>
 
-<form>
-    <input type="text" ng-model="coordinates.model.latitude">
-    <input type="text" ng-model="coordinates.model.longitude">
-    <a href="#/weather"> See Weather Forecast</a>
-</form>
+<div class="jumbotron">
+    <form>
+        <input type="text" ng-model="coordinates.model.latitude">
+        <input type="text" ng-model="coordinates.model.longitude"><br>
+        <a href="#/weather"> See Weather Forecast</a>
+    </form>
+</div>
