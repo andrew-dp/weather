@@ -7,13 +7,24 @@
 </div>
 
 <div class="row">
-    <google-map
-            center="map.center"
-            zoom="map.zoom"
-            draggable="true"
-            events="MouseEvent">
-    </google-map>
+    <div class="span8">
+        <google-map
+                center="map.center"
+                zoom="map.zoom"
+                draggable="true"
+                events="MouseEvent">
+        </google-map>
+    </div>
 </div>
+
+<form>
+    <input type="text" ng-model="coordinates.model.latitude">
+    <input type="text" ng-model="coordinates.model.longitude">
+    <button class="btn btn-primary" ng-click="saveEntry()">See Weather Forecast</button>
+</form>
+
+
+
 
 <div class="jumbotron">
     <div>
