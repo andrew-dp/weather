@@ -77,3 +77,8 @@ body {
     border-bottom: 0;
   }
 }
+
+.angular-google-map-container {
+    height: 700px;
+    width: 700px;
+}

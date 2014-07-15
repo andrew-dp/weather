@@ -2,28 +2,28 @@
  * Created by aguard on 7/9/14.
  */
 
-angular.module('weatherApp').service('weatherDataService', function($q, $http, FORECAST_BASE_URL) {
+angular.module('weatherApp')
+    .service('weatherDataService', ['$q', '$http', 'FORECAST_BASE_URL', 'logisticsService', function($q, $http, FORECAST_BASE_URL, logisticsService) {
 
-    function getChicagoData() {
+        function getWeatherData() {
 
-        var chiLatitude = 41.85;
-        var chiLongitude = -87.65;
-        var chicagoRestPoint = FORECAST_BASE_URL + '/' + chiLatitude + ',' + chiLongitude + '?callback=JSON_CALLBACK';
+            var latitude = logisticsService.model.latitude;
+            var longitude = logisticsService.model.longitude;
 
-        var deferred = $q.defer();
+            var chicagoRestPoint = FORECAST_BASE_URL + '/' + latitude + ',' + longitude + '?callback=JSON_CALLBACK';
+            var deferred = $q.defer();
 
-//      jsonp request - publicly exposes API key - not secure - use CORS for better security
-        $http.jsonp(chicagoRestPoint).then(function(response) {
-            deferred.resolve(response.data);
-        });
-
-        return deferred.promise;
-    }
-
-//  The public API
-    return {
-        getChicagoWeather: function() {
-            return getChicagoData();
+    //      jsonp request - publicly exposes API key - not secure - use CORS for better security?
+            $http.jsonp(chicagoRestPoint).then(function(response) {
+                deferred.resolve(response.data);
+            });
+            return deferred.promise;
         }
-    };
-});
+
+    //  The public API
+        return {
+            getWeather: function() {
+                return getWeatherData();
+            }
+        };
+    }]);

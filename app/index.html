@@ -47,27 +47,33 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
 
-<!-- lang must be loaded first for international support to work-->
-    <script src="components/moment/lang/de.js"></script>
-    <script src="components/moment/moment.js"></script>
-    <script src="components/angular-moment/angular-moment.js"></script>
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script src='/bower_components/lodash/dist/lodash.underscore.js'></script>
+    <script src='/bower_components/angular-google-maps/dist/angular-google-maps.js'></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+
         <script src="scripts/controllers/WeatherController.js"></script>
+        <script src="scripts/controllers/MapController.js"></script>
+
         <script src="scripts/directives/sampledirective.js"></script>
+
         <script src="scripts/filters/samplefilter.js"></script>
-        <script src="scripts/services/sampleservice.js"></script>
+
         <script src="scripts/services/WeatherDataService.js"></script>
+        <script src="scripts/services/LogisticsService.js"></script>
         <!-- endbuild -->
 </body>
 </html>

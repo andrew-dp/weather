@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'angularMoment'])
+angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'angularMoment', 'google-maps'])
 
   .constant('FORECAST_BASE_URL', 'https://api.forecast.io/forecast/2c278faafe07dd1e617dc3efcc1ae103')
 
@@ -10,7 +10,8 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
 
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html'
+        templateUrl: '../views/map.html',
+        controller: 'MapCtrl'
       })
         .when('/weather', {
             templateUrl: '../views/weather.html',
@@ -18,7 +19,9 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
             resolve: {
                 weatherData: ['$route', '$q', 'weatherDataService', function($route, $q, weatherDataService) {
                     var deferred = $q.defer();
-                    weatherDataService.getChicagoWeather().then(function(response) {
+//                  var latitude = 41.85;
+//                  var longitude = -87.65;
+                    weatherDataService.getWeather().then(function(response) {
                        deferred.resolve(response);
                     }, function(error) {
                         alert(error.message);
