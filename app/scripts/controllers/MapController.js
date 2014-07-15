@@ -5,8 +5,6 @@
 angular.module('weatherApp')
     .controller('MapCtrl', ['$scope', 'logisticsService',  function($scope, logisticsService) {
 
-        $scope.coordinates = logisticsService;
-
         $scope.map = {
             center: {
                 latitude: 41.90,
@@ -20,30 +18,40 @@ angular.module('weatherApp')
                     $scope.$apply(function () {
                         $scope.mapInstance = map;
                     });
-                },
-                rightclick: function (event) {
-                    $scope.$apply(function() {
-                        $scope.lat = event.latLng.lat();
-                        $scope.lng = event.latLng.lng();
-                        alert("Lat=" + lat + "; Lng=" + lng);
+                }
+            }
+        };
+
+        var lat;
+        var lon;
+
+        $scope.searchLocationMarker = {
+            coords: {
+                latitude: 41.90,
+                longitude: -87.70
+            },
+            options: { draggable: true },
+            events: {
+                dragend: function (marker, eventName, args) {
+                    $scope.$apply(function () {
+                        lat = marker.getPosition().lat();
+                        lon = marker.getPosition().lng();
+
+                        logisticsService.latitude = marker.getPosition().lat();
+                        logisticsService.longitude = marker.getPosition().lng();
+
+                        console.log('lat: ' + lat);
+                        console.log('lon: ' + lon);
                     });
                 }
             }
         };
 
-        $scope.searchLocationMarker = {
-            coords: {
-                latitude: 40.1451,
-                longitude: -99.6680
-            },
-            options: { draggable: true },
-            events: {
-                dragend: function (marker, eventName, args) {
-                    $log.log('marker dragend');
-                    $log.log(marker.getPosition().lat());
-                    $log.log(marker.getPosition().lng());
-                }
-            }
-        };
-        
+        console.log('wee: ' + logisticsService.latitude);
+        console.log('woo: ' + logisticsService.longitude);
+
+        $scope.coordinates = logisticsService;
+
+//        $scope.coordinates.latitude = draggedLat;
+//        $scope.coordinates.longitude = draggedLon;
     }]);
