@@ -30,10 +30,4 @@ angular.module('weatherApp')
                 }
             }
         };
-
-//        site.onClicked = function () {
-//            onMarkerClicked(site);
-//        };
-
-
     }]);
