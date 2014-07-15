@@ -5,17 +5,7 @@
 angular.module('weatherApp')
     .controller('MapCtrl', ['$scope', 'logisticsService', function($scope, logisticsService) {
 
-//        var longitude = $scope.longitude;
-//        var latitude = $scope.latitude;
-
-//        logisticsService.setLongitude(longitude);
-//        logisticsService.setLatitude(latitude);
-
         $scope.coordinates = logisticsService;
-
-//        $scope.saveEntry = function() {
-//
-//        };
 
         $scope.map = {
             center: {
