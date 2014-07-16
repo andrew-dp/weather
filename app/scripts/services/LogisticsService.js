@@ -13,5 +13,7 @@ angular.module('weatherApp')
                 longitude: ''
             }
         };
+
+        console.log('in log service');
         return service;
     });
