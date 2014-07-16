@@ -12,7 +12,10 @@ angular.module('weatherApp')
                 latitude: logisticsService.model.latitude,
                 longitude: logisticsService.model.longitude
             },
-            zoom: 5
+            zoom: 3,
+            options: {
+                mapTypeId: google.maps.MapTypeId.SATELLITE
+            }
         };
 
         $scope.searchLocationMarker = {

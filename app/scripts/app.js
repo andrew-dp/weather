@@ -9,10 +9,14 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
 //    delete $routeProvider.defaults.headers.common['X-Requested-With'];
 
     $routeProvider
-      .when('/', {
-        templateUrl: '../views/map.html',
-        controller: 'MapCtrl'
-      })
+       .when('/', {
+            templateUrl: '../views/login.html',
+            controller: 'LoginCtrl'
+        })
+        .when('/map', {
+            templateUrl: '../views/map.html',
+            controller: 'MapCtrl'
+        })
         .when('/weather', {
             templateUrl: '../views/weather.html',
             controller: 'WeatherCtrl',
