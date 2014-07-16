@@ -10,9 +10,6 @@ angular.module('weatherApp')
             var latitude = logisticsService.model.latitude;
             var longitude = logisticsService.model.longitude;
 
-//            console.log('lat in weather service:' + latitude);
-//            console.log('lon in weather service: ' + longitude);
-
             var chicagoRestPoint = FORECAST_BASE_URL + '/' + latitude + ',' + longitude + '?callback=JSON_CALLBACK';
             var deferred = $q.defer();
 

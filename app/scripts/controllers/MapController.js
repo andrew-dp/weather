@@ -11,15 +11,15 @@ angular.module('weatherApp')
                 longitude: -87.70
             },
 //            zoom: 11,
-            zoom: 5,
+            zoom: 2
 //          required for event handling: http://angular-google-maps.org/faq#!/faq
-            events: {
-                tilesloaded: function (map) {
-                    $scope.$apply(function () {
-                        $scope.mapInstance = map;
-                    });
-                }
-            }
+//            events: {
+//                tilesloaded: function (map) {
+//                    $scope.$apply(function () {
+//                        $scope.mapInstance = map;
+//                    });
+//                }
+//            }
         };
 
         var lat;
@@ -47,25 +47,13 @@ angular.module('weatherApp')
                         logisticsService.model.latitude = marker.getPosition().lat();
                         logisticsService.model.longitude = marker.getPosition().lng();
 
-                        console.log('lat: ' + lat);
-                        console.log('lon: ' + lon);
-
                         $scope.$watch(function () { return logisticsService.model }, function (newVal, oldVal) {
                             if (typeof newVal !== 'undefined') {
                                 $scope.coordinates = logisticsService.model;
-                                console.log('lat in watch: ' + logisticsService.model.latitude);
-                                console.log('lng in watch: ' + logisticsService.model.longitude);
                             }
                         });
-
                     });
                 }
             }
         };
-
-//        console.log('wee: ' + )
-//        $scope.coordinates = logisticsService;
-
-//        $scope.coordinates.latitude = draggedLat;
-//        $scope.coordinates.longitude = draggedLon;
     }]);
