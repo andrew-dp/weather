@@ -10,20 +10,8 @@ angular.module('weatherApp')
                 latitude: 41.90,
                 longitude: -87.70
             },
-//            zoom: 11,
-            zoom: 2
-//          required for event handling: http://angular-google-maps.org/faq#!/faq
-//            events: {
-//                tilesloaded: function (map) {
-//                    $scope.$apply(function () {
-//                        $scope.mapInstance = map;
-//                    });
-//                }
-//            }
+            zoom: 5
         };
-
-        var lat;
-        var lon;
 
         $scope.coordinates = logisticsService.model;
 
@@ -41,8 +29,6 @@ angular.module('weatherApp')
             events: {
                 dragend: function (marker, eventName, args) {
                     $scope.$apply(function () {
-                        lat = marker.getPosition().lat();
-                        lon = marker.getPosition().lng();
 
                         logisticsService.model.latitude = marker.getPosition().lat();
                         logisticsService.model.longitude = marker.getPosition().lng();
