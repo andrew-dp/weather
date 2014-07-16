@@ -5,27 +5,53 @@
 angular.module('weatherApp')
     .controller('MapCtrl', ['$scope', 'logisticsService',  function($scope, logisticsService) {
 
-        $scope.coordinates = logisticsService;
-
         $scope.map = {
             center: {
                 latitude: 41.90,
                 longitude: -87.70
             },
 //            zoom: 11,
-            zoom: 5,
+            zoom: 2
 //          required for event handling: http://angular-google-maps.org/faq#!/faq
+//            events: {
+//                tilesloaded: function (map) {
+//                    $scope.$apply(function () {
+//                        $scope.mapInstance = map;
+//                    });
+//                }
+//            }
+        };
+
+        var lat;
+        var lon;
+
+        $scope.coordinates = logisticsService.model;
+
+        $scope.searchLocationMarker = {
+
+            coords: {
+                latitude: 41.90,
+                longitude: -87.70
+            },
+
+            options: {
+                draggable: true
+            },
+
             events: {
-                tilesloaded: function (map) {
+                dragend: function (marker, eventName, args) {
                     $scope.$apply(function () {
-                        $scope.mapInstance = map;
-                    });
-                },
-                rightclick: function (event) {
-                    $scope.$apply(function() {
-                        $scope.lat = event.latLng.lat();
-                        $scope.lng = event.latLng.lng();
-                        alert("Lat=" + lat + "; Lng=" + lng);
+                        lat = marker.getPosition().lat();
+                        lon = marker.getPosition().lng();
+
+                        logisticsService.model.latitude = marker.getPosition().lat();
+                        logisticsService.model.longitude = marker.getPosition().lng();
+
+                        $scope.$watch(function () { return logisticsService.model }, function (newVal, oldVal) {
+                            if (typeof newVal !== 'undefined') {
+                                $scope.coordinates = logisticsService.model;
+                            }
+                        });
                     });
                 }
             }
