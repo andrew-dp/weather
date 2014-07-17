@@ -3,24 +3,22 @@
  */
 
 angular.module('weatherApp')
-    .controller('LoginCtrl', ['$scope', '$location', function($scope, $location) {
+    .controller('LoginCtrl', ['$scope', '$route', '$routeParams', '$location', function($scope, $route, $routeParams, $location) {
 
-        $scope.loginUser = function() {
+        $scope.user = {
+            name: '',
+            password: ''
+        };
 
-            if ($scope.username == 'andrew') {
+        $scope.auth = function() {
 
-//                need to watch? add a service? perchance
-                console.log($scope.username);
+            if ( $scope.user.name === 'wat' ) {
+                $location.path('/map');
+                console.log('wat1')
 
-                $location.path('/#/map');
-
-//                if ($scope.password === 'wat') {
-//                    $location.path('/#/map');
-//                } else {
-//                    $location.path('/#/map');
-//                }
             } else {
-                $location.path('/#/map');
+                $location.url('/');
+                console.log('not wat');
             }
         };
     }]);

@@ -5,9 +5,11 @@
         <h2>Login</h2>
     </div>
     <section>
-        <form class="well" ng-submit="loginUser()">
-            <label for="username">Username</label><input type="text" id="username" ng-model="username">
-            <label for="password">Password</label><input type="password" id="password" ng-model="password">
+        <form class="well" ng-submit="auth()">
+            <label for="username">Username</label><input type="text" id="username" ng-model="user.name">
+
+            <div>{{user.name}}</div>
+            <label for="password">Password</label><input type="password" id="password" ng-model="user.password">
             <br/>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
