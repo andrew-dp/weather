@@ -9,10 +9,9 @@ angular.module('weatherApp')
 
         var service = {
             model: {
-                latitude: 41.90,
-                longitude: -87.70
+                latitude: 41.92848580903533,
+                longitude: -87.71262515783309
             }
         };
-
         return service;
     });

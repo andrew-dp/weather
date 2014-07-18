@@ -14,7 +14,7 @@ angular.module('weatherApp')
             var deferred = $q.defer();
 
     //      jsonp request - publicly exposes API key - not secure
-    //      TODO - use CORS
+    //      TODO - use CORS - not supported by forecast.io, build node server first
             $http.jsonp(chicagoRestPoint).then(function(response) {
                 deferred.resolve(response.data);
             });

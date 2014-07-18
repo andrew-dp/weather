@@ -1,15 +1,9 @@
-<div class="header">
-    <ul class="nav nav-pills pull-right">
-        <li class="active"><a ng-href="#">Home</a></li>
-
-    </ul>
-    <h3 class="text-muted">weather</h3>
-</div>
+<header></header>
 
 <div class="jumbotron">
     <div>
-        <h2>Current weather in {{weatherData.timezone}}: {{weatherData.currently.summary}}</h2>
-        <p>Weather for the week: {{weatherData.daily.summary}} </p>
+        <h2> Current weather in timezone {{weatherData.timezone}}: {{weatherData.currently.summary}}</h2>
+        <p> Weather for the week: {{weatherData.daily.summary}} </p>
         <p> Current time in {{weatherData.timezone}}: {{ currentTime | date:'short'}}</p>
 
         <div ng-repeat="data in dailyData">

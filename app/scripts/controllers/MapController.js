@@ -5,33 +5,24 @@
 angular.module('weatherApp')
     .controller('MapCtrl', ['$scope', 'logisticsService',  function($scope, logisticsService) {
 
+        $scope.coordinates = logisticsService.model;
+
         $scope.map = {
             center: {
-                latitude: 41.90,
-                longitude: -87.70
+                latitude: logisticsService.model.latitude,
+                longitude: logisticsService.model.longitude
             },
-//            zoom: 11,
-            zoom: 2
-//          required for event handling: http://angular-google-maps.org/faq#!/faq
-//            events: {
-//                tilesloaded: function (map) {
-//                    $scope.$apply(function () {
-//                        $scope.mapInstance = map;
-//                    });
-//                }
-//            }
+            zoom: 3,
+            options: {
+                mapTypeId: google.maps.MapTypeId.SATELLITE
+            }
         };
-
-        var lat;
-        var lon;
-
-        $scope.coordinates = logisticsService.model;
 
         $scope.searchLocationMarker = {
 
             coords: {
-                latitude: 41.90,
-                longitude: -87.70
+                latitude: logisticsService.model.latitude,
+                longitude: logisticsService.model.longitude
             },
 
             options: {
@@ -41,8 +32,6 @@ angular.module('weatherApp')
             events: {
                 dragend: function (marker, eventName, args) {
                     $scope.$apply(function () {
-                        lat = marker.getPosition().lat();
-                        lon = marker.getPosition().lng();
 
                         logisticsService.model.latitude = marker.getPosition().lat();
                         logisticsService.model.longitude = marker.getPosition().lng();
