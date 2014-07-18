@@ -16,12 +16,11 @@ angular.module('weatherApp')
                 if ( $scope.user.password === 'woo' ) {
                     $location.path('/map');
                 } else {
-                    $location.url('/');
+                    $location.path('/');
                     alert('password must be woo');
                 }
-
             } else {
-                $location.url('/');
+                $location.path('/');
                 alert('username must be wat');
             }
         };
