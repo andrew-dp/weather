@@ -4,7 +4,7 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
 
   .constant('FORECAST_BASE_URL', 'https://api.forecast.io/forecast/2c278faafe07dd1e617dc3efcc1ae103')
 
-  .config(['$routeProvider', function ($routeProvider) {
+  .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
 //    delete $routeProvider.defaults.headers.common['X-Requested-With'];
 
@@ -36,4 +36,6 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
       .otherwise({
         redirectTo: '/'
       });
+//        removes the # tag from routing
+        $locationProvider.html5Mode(true);
   }]);
