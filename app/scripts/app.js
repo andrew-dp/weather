@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'angularMoment', 'google-maps'])
 
@@ -36,6 +36,6 @@ angular.module('weatherApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'
       .otherwise({
         redirectTo: '/'
       });
-//        removes the # tag from routing
-        $locationProvider.html5Mode(true);
+//        removes the # tag from routing, prevents hard refresh
+//        $locationProvider.html5Mode(true);
   }]);
