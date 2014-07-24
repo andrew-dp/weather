@@ -1,13 +1,27 @@
 <div class="hero-unit alignCenter">
+
     <div class="page-header">
-        <h2>Login</h2>
+        <h2>Login or Sign-Up</h2>
     </div>
+
     <section>
-        <form class="well" ng-submit="auth()">
-            <label for="username">Username</label><input type="text" id="username" ng-model="user.name"><br><br>
-            <label for="password">Password</label><input type="password" id="password" ng-model="user.password"><br>
+        <h3>Login</h3>
+        <form class="well" ng-submit="userLogin()">
+            <label for="loginName">Username</label><input type="text" id="loginName" ng-model="login.name"><br><br>
+            <label for="loginPass">Password</label><input type="password" id="loginPass" ng-model="login.password"><br>
             <br/>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </section>
+
+    <section>
+        <h3>Sign Up</h3>
+        <form class="well" ng-submit="userSignup()">
+            <label for="signupName">Username</label><input type="text" id="signupName" ng-model="signup.name"><br><br>
+            <label for="signupPass">Password</label><input type="password" id="signupPass" ng-model="signup.password"><br>
+            <br/>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </section>
+
 </div>
