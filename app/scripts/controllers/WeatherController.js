@@ -5,9 +5,7 @@
 angular.module('weatherApp')
     .controller('WeatherCtrl', ['$scope', 'weatherData', 'moment', function($scope, weatherData, moment) {
 
-        var time = moment.unix(weatherData.currently.time).format('dddd, MMMM Do YYYY, h:mm:ss a');
-
-        $scope.currentTime = time;
+        $scope.currentTime = moment.unix(weatherData.currently.time).format('dddd, MMMM Do YYYY, h:mm:ss a');
         $scope.weatherData = weatherData;
         $scope.hourlyData = weatherData.hourly.data;
 
