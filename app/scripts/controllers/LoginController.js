@@ -26,14 +26,14 @@ angular.module('weatherApp')
         $scope.userLogin = function() {
 
             getUserData().then(function(users) {
-
                 for ( var i = 0; i < users.length; i++ ) {
                     if ( $scope.login.name === users[i].name && $scope.login.password === users[i].password ) {
                         $location.path('/map');
-                    } else {
-                        $location.path('/');
-                        alert('Incorrect username or password');
+                        break;
                     }
+                }
+                if ( $location.path() === '/' ) {
+                    alert('Wrong username or password');
                 }
             });
         };

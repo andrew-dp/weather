@@ -25,8 +25,8 @@
             <file leaf-file-name="WeatherDataService.js" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/app/scripts/services/WeatherDataService.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.58985204" vertical-offset="0" max-vertical-offset="946">
-                    <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+                  <state vertical-scroll-proportion="0.6088795" vertical-offset="0" max-vertical-offset="946">
+                    <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
                     <folding />
                   </state>
                 </provider>
@@ -96,8 +96,8 @@
       <file leaf-file-name="LoginController.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/LoginController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51506025" vertical-offset="90" max-vertical-offset="1008">
-              <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.59638554" vertical-offset="162" max-vertical-offset="1008">
+              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -781,16 +781,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/WeatherDataService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58985204" vertical-offset="0" max-vertical-offset="946">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.6088795" vertical-offset="0" max-vertical-offset="946">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/LoginController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51506025" vertical-offset="90" max-vertical-offset="1008">
-          <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.59638554" vertical-offset="162" max-vertical-offset="1008">
+          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
           <folding />
         </state>
       </provider>
