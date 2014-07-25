@@ -5,7 +5,6 @@
 angular.module('weatherApp')
     .service('userAuthService', ['$q', '$http', '$location', function($q, $http, $location) {
 
-        // TODO - make this a constant
         var usersRestPoint = 'http://localhost:3000/collections/weatherAppData';
 
         function getUserData() {
@@ -24,7 +23,6 @@ angular.module('weatherApp')
             var deferred = $q.defer();
             $http.post(usersRestPoint, user)
                 .success(function(user) {
-                    console.log('user: ' + user.name + user.password);
                     deferred.resolve(user);
                     console.log('post success');
                     $location.path('/map');

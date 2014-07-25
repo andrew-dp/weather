@@ -5,8 +5,6 @@
 angular.module('weatherApp')
     .controller('LoginCtrl', ['$q', '$http', '$scope', '$route', '$routeParams', '$location', 'userAuthService', function($q, $http, $scope, $route, $routeParams, $location, userAuthService) {
 
-        var usersRestPoint = 'http://localhost:3000/collections/weatherAppData';
-
         $scope.login = {
             name: '',
             password: ''
@@ -33,25 +31,10 @@ angular.module('weatherApp')
         };
 
         $scope.userSignup = function() {
-
-            function user() {
-                return {
-                    name: $scope.signup.name,
-                    password: $scope.signup.password
-                };
-            }
-
-            userAuthService.createUser(user());
-
-//            var deferred = $q.defer();
-//            $http.post(usersRestPoint, user)
-//                .success(function(user) {
-//                    deferred.resolve(user);
-//                    console.log('post success');
-//                    $location.path('/map');
-//                })
-//                .error(function(error) {
-//                    console.error('Error: ' + error);
-//                });
+            var user = {
+                name: $scope.signup.name,
+                password: $scope.signup.password
+            };
+            userAuthService.createUser(user);
         }
     }]);
