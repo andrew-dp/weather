@@ -5,14 +5,17 @@
 angular.module('weatherApp')
     .controller('LoginCtrl', ['$q', '$http', '$scope', '$route', '$routeParams', '$location', function($q, $http, $scope, $route, $routeParams, $location) {
 
+        var usersRestPoint = 'http://localhost:3000/collections/weatherAppData';
+
         $scope.login = {
             name: '',
             password: ''
         };
 
+        // TODO - move this to a service
         function getUserData() {
             var deferred = $q.defer();
-            $http.get('http://localhost:3000/collections/weatherAppData')
+            $http.get(usersRestPoint)
                 .success(function(users) {
                     deferred.resolve(users);
                 })
@@ -22,7 +25,6 @@ angular.module('weatherApp')
             return deferred.promise;
         }
 
-        // get http://localhost:3000/collections/users
         $scope.userLogin = function() {
 
             getUserData().then(function(users) {
@@ -43,8 +45,20 @@ angular.module('weatherApp')
             password: ''
         };
 
-//        // post http://localhost:3000/collections/users
         $scope.userSignup = function() {
-
+            var user = {
+                "name": $scope.signup.name,
+                "password": $scope.signup.password
+                        };
+            var deferred = $q.defer();
+            $http.post(usersRestPoint, user)
+                .success(function(user) {
+                    deferred.resolve(user);
+                    console.log('post success');
+                    $location.path('/map');
+                })
+                .error(function(error) {
+                    console.error('Error: ' + error);
+                });
         }
     }]);
