@@ -12,18 +12,6 @@ angular.module('weatherApp')
             password: ''
         };
 
-//        function getUserData() {
-//            var deferred = $q.defer();
-//            $http.get(usersRestPoint)
-//                .success(function(users) {
-//                    deferred.resolve(users);
-//                })
-//                .error(function(error) {
-//                    console.error('Error: ' + error);
-//                });
-//            return deferred.promise;
-//        }
-
         $scope.userLogin = function() {
 
             userAuthService.getUser().then(function(users) {
@@ -45,21 +33,25 @@ angular.module('weatherApp')
         };
 
         $scope.userSignup = function() {
-            var user = {
-                "name": $scope.signup.name,
-                "password": $scope.signup.password
-                        };
 
-            var deferred = $q.defer();
+            function user() {
+                return {
+                    name: $scope.signup.name,
+                    password: $scope.signup.password
+                };
+            }
 
-            $http.post(usersRestPoint, user)
-                .success(function(user) {
-                    deferred.resolve(user);
-                    console.log('post success');
-                    $location.path('/map');
-                })
-                .error(function(error) {
-                    console.error('Error: ' + error);
-                });
+            userAuthService.createUser(user());
+
+//            var deferred = $q.defer();
+//            $http.post(usersRestPoint, user)
+//                .success(function(user) {
+//                    deferred.resolve(user);
+//                    console.log('post success');
+//                    $location.path('/map');
+//                })
+//                .error(function(error) {
+//                    console.error('Error: ' + error);
+//                });
         }
     }]);

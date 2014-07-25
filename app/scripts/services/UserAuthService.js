@@ -3,7 +3,7 @@
  */
 
 angular.module('weatherApp')
-    .service('userAuthService', ['$q', '$http', function($q, $http) {
+    .service('userAuthService', ['$q', '$http', '$location', function($q, $http, $location) {
 
         // TODO - make this a constant
         var usersRestPoint = 'http://localhost:3000/collections/weatherAppData';
@@ -20,10 +20,27 @@ angular.module('weatherApp')
             return deferred.promise;
         }
 
+        function createUserData(user) {
+            var deferred = $q.defer();
+            $http.post(usersRestPoint, user)
+                .success(function(user) {
+                    console.log('user: ' + user.name + user.password);
+                    deferred.resolve(user);
+                    console.log('post success');
+                    $location.path('/map');
+                })
+                .error(function(error) {
+                    console.error('Error: ' + error);
+                });
+        }
+
         // The public API
         return {
             getUser: function() {
                 return getUserData();
+            },
+            createUser: function(user) {
+                return createUserData(user);
             }
         };
     }]);
