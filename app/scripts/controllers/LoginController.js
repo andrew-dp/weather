@@ -11,17 +11,14 @@ angular.module('weatherApp')
         };
 
         function getUserData() {
-            // get users
             var deferred = $q.defer();
-            $http.get('http://localhost:3000/collections/weatherAppData').then(function(response) {
-                deferred.resolve(response.data);
-            });
-//                .success(function(users) {
-//                    deferred.resolve(users);
-//                })
-//                .error(function(error) {
-//                    console.error('Error: ' + error);
-//                });
+            $http.get('http://localhost:3000/collections/weatherAppData')
+                .success(function(users) {
+                    deferred.resolve(users);
+                })
+                .error(function(error) {
+                    console.error('Error: ' + error);
+                });
             return deferred.promise;
         }
 
@@ -29,30 +26,21 @@ angular.module('weatherApp')
         $scope.userLogin = function() {
 
             getUserData().then(function(users) {
+
                 for ( var i = 0; i < users.length; i++ ) {
-                    console.log("user: " + users[i].name);
+                    if ( $scope.login.name === users[i].name && $scope.login.password === users[i].password ) {
+                        $location.path('/map');
+                    } else {
+                        $location.path('/');
+                        alert('Incorrect username or password');
+                    }
                 }
             });
-
-
-
-//            console.log(userData);
-//            if ( $scope.user.name === 'wat' ) {
-//                if ( $scope.user.password === 'woo' ) {
-//                    $location.path('/map');
-//                } else {
-//                    $location.path('/');
-//                    alert('password must be woo');
-//                }
-//            } else {
-//                $location.path('/');
-//                alert('username must be wat');
-//            }
         };
 
         $scope.signup = {
             name: '',
-            passowrd: ''
+            password: ''
         };
 
 //        // post http://localhost:3000/collections/users

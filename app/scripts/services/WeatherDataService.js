@@ -10,14 +10,18 @@ angular.module('weatherApp')
             var latitude = logisticsService.model.latitude;
             var longitude = logisticsService.model.longitude;
 
-            var chicagoRestPoint = FORECAST_BASE_URL + '/' + latitude + ',' + longitude + '?callback=JSON_CALLBACK';
-            var deferred = $q.defer();
+            var weatherDataRestPoint = FORECAST_BASE_URL + '/' + latitude + ',' + longitude + '?callback=JSON_CALLBACK';
 
+            var deferred = $q.defer();
     //      jsonp request - publicly exposes API key - not secure
     //      TODO - use CORS - not supported by forecast.io, build node server first
-            $http.jsonp(chicagoRestPoint).then(function(response) {
-                deferred.resolve(response.data);
-            });
+            $http.jsonp(weatherDataRestPoint)
+                .success(function(data) {
+                    deferred.resolve(data);
+                })
+                .error(function(error) {
+                    console.error('Error: ' + error);
+                });
             return deferred.promise;
         }
 
